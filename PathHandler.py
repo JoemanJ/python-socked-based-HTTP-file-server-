@@ -14,8 +14,9 @@ class PathHandler:
         print('current directory:', self.current_directory)
         print('current_directory contents:', self.get_current_directory_contents())
 
-    def get_current_directory_contents(self):
-        return os.listdir(self.current_directory)
+    def get_directory_contents(self, path):
+        path = self.sanitise_path(path)
+        return os.listdir(os.path.abspath(os.path.join(self.current_directory, path)))
     
     def is_path_valid(self, path):
         path = self.sanitise_path(path)

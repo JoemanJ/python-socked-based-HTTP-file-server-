@@ -64,7 +64,8 @@ class Server:
                 self.send_data(self._response_builder.build_not_found_response(request['path']))
             
             elif self._path_handler.is_directory(request['path']):
-                self.send_data(self._response_builder.build_response)
+                file_list = self._path_handler.get_directory_contents(request['path'])
+                self.send_data(self._response_builder.build_directory_response(request['path'], file_list))
                 # self.send_data(self._response_builder.build_test_response())
 
     def parse_request(self, request_data: str):
