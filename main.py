@@ -1,11 +1,11 @@
-from Server import Server
+from servers.HTTPFileBrowserServer import HTTPFileBrowserServer
 
 def main():
     addr = "127.0.0.1"
     port = 8081
 
 
-    s = Server(addr, port, '.')
+    s = HTTPFileBrowserServer(addr, port, '.')
     
     s.start(5)
 
