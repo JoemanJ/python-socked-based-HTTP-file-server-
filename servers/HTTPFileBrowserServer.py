@@ -40,8 +40,8 @@ class HTTPFileBrowserServer(BaseServer):
         raw_request = connection.recv(1024).decode()
         
         if raw_request:
-            print('Received request:')
-            print(raw_request)
+            # print('Received request:')
+            # print(raw_request)
             
             try:
                 request = self.parse_request(raw_request)
