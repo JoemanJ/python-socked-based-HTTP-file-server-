@@ -1,5 +1,6 @@
-import shutil
 import os
+import shutil
+from mimetypes import guess_type
 
 class FileHandler():
     base_directory: str
@@ -21,3 +22,6 @@ class FileHandler():
     
     def get_file_size(self, file_data: bytes):
         return len(file_data)
+    
+    def get_file_mime_type(self, file_path):
+        return guess_type(file_path)

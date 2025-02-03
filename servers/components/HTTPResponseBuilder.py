@@ -54,14 +54,18 @@ class HTTPResponseBuilder:
 
         return response.encode()
     
-    def build_zip_file_response(self, file_data: bytes, file_size: int):
+    def build_file_response_header(self, file_size: int, content_type: str):
         response = ''
-        response += 'HTTP/2 200\r\n'
+        response += 'HTTP/2 200 OK\r\n'
         response += f'Content-Length: {file_size}'
         response += 'content-disposition: attachment; filename=sample-1.zip'
         response += '\r\n'
-        response += 'Content-Type: application/zip'
+        response += f'Content-Type: {content_type}'
         response += '\r\n'
         response += '\r\n'
 
         return response.encode()
+        
+    def build_invalid_request_response(self):
+        response = ''
+        response += 'HTTP/2 400 Bad Request\r\n'

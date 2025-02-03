@@ -53,4 +53,7 @@ class BaseServer:
 
     def close(self):
         self._socket.close()
+
+    def close_connection(self):
+        pass
     
