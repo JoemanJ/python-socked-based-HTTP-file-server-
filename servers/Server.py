@@ -3,7 +3,7 @@ import socket
 class BaseServer:
     addr: str
     port: int
-    _socket: socket.socket
+    _socket: socket.socket = None
 
     def __init__(self, addr: str, port: int):
         self.addr = addr
@@ -11,13 +11,13 @@ class BaseServer:
 
         self._socket = self.create_server_socket(addr, port)
 
-        print('Server ready on', addr+':'+str(port))
+        print('Server ready on', str(port))
     
     def create_server_socket(self, addr: str, port: int) -> socket.socket:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
             s.bind((addr, port))
-        except OSError as e:
+        except Exception as e:
             print(f'Error: Port {port} already in use')
             quit()
         
@@ -26,7 +26,8 @@ class BaseServer:
         return s
     
     def __del__(self):
-        self._socket.close()
+        if self._socket:
+            self._socket.close()
         print('Server closed')
         return
     
