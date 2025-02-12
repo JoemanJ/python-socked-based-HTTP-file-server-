@@ -39,6 +39,53 @@ class HTTPResponseBuilder:
         response += ''
         response += '<html>'
         response += f'<head><title>{path}</title></head>'
+        response += '''
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                color: #333;
+                margin: 0;
+                padding: 0;
+            }
+
+            h1 {
+                background-color: #007bff;
+                color: white;
+                padding: 20px;
+                margin: 0;
+                text-align: center;
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 20px;
+            }
+
+            li {
+                background-color: #fff;
+                margin: 5px 0;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+            a {
+                text-decoration: none;
+                color: #007bff;
+            }
+
+            a:hover {
+                color: #0056b3;
+            }
+
+            li a {
+                display: block;
+                padding: 5px 10px;
+            }
+        </style>
+        '''
         response += '<body>'
         response += f'<h1>{path}</h1>'
         response += '<ul>'
