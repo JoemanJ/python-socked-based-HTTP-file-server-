@@ -2,11 +2,11 @@
 This is a simple file server built using only Python's 'socket' standart package.\
 Server responses are formated as basic HTTP 1.1 responses, and as such the server is accessible through virtually any web browser.\
 Once accessed, the server presents a simple static HTML page resembling a file brewser, with a the contents of the hosted directory. Clients can then access subdirectories and download files navigating through the static web pages.\
-Clients are served through different threads so as to never block the main server process if a long opperation is being processed.\
+Clients are served through different threads so as to never block the main server process if a long opperation is being processed.
 
 ## Technologies Used
 The server was entirely written using only standart Python 3 packages, mainly 'socket', 'os', and 'threading'.\
-Virtually any web browser can be used as a client.\
+Virtually any web browser can be used as a client.
 
 ## Dependencies
 - Python 3.5 or later
@@ -19,7 +19,7 @@ Through a web browser, access 127.0.0.1:25252\
 The '/' button takes you directly to the root_directory page\
 The '..' button takes you to the parent directory of the current directory\
 Clicking any directory button will take you to that directory's page\
-Clicking any file button will download that file, or play the corresponding media directly on your browser if that is supported.\
+Clicking any file button will download that file, or play the corresponding media directly on your browser if that is supported.
 
 ### Full usage
 Run the server hosting a directory (named root_directory) in the main page\
@@ -41,4 +41,10 @@ If an HTTP request is sent with the address of a file, relatve to the browser's 
 If an HTTP request is sent with an address that does not match the relative path for any directory or file relative to the server's root_directory, the server will respond with an HTTP 404 NOT FOUND response and a web page with a link back to the server's root_directory.\
 If an invalid HTTP request is sent, the server will return a HTTP 400 BAD REQUEST response\
 To preserve server resourses, files are sent to clients in chunks of 1MB\
-Client requests are logged to the terminal where the server is running.\
+Client requests are logged to the terminal where the server is running.
+
+## Possible future improvements
+- Possibility for users to upload files
+- Authentication system
+- A setting to not show hidden files
+- A setting to not show files which the user running the server does not have read access to
